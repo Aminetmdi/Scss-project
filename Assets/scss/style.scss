@@ -4,6 +4,10 @@
 *{
     @include overal;
 }
+a{
+    text-decoration: none;
+    font-weight: 500;
+}
 body{
     background: $bgColor;
 }
@@ -11,10 +15,136 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding:0.8rem 3rem;
+    height: 7vh;
+    box-shadow: 0 1px 10px rgb(179, 179, 179);
+    background-color: $primaryColor;
+    .logo-name{
+        @include textStyle(1.5rem , 200px , $secondaryColor)
+    }
+    .hamburger-menu{
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        span{
+            margin: 3px 0;
+            width: 30px;
+            height: 4px;
+            display: inline-block;
+            background-color: $secondaryColor;
+            border-radius: 1rem;
+        }
+    }
 }
+
+
 .navbar{
     display: flex;
+    align-items: center;
+   img{
+        height: 30px;
+        border-radius: 50%;
+        margin-left: 1rem;
+    }
 
-
+    nav ul{
+        display: flex;
+        list-style: none;
+        flex-direction: row-reverse;
+         li{
+            padding: 0 10px;
+            a{
+                padding: 0 5px;
+                @include textStyle(1rem , 500 , $secondaryColor);
+                &:hover {
+                    transition: .4s;
+                    color: $textColor;
+                }
+            }
+        }
+    }
     
 }
+
+
+
+.main{
+    display: flex;
+    margin: 1rem 3rem;
+    // justify-content: space-between;
+    aside{
+        flex-direction: column;
+        margin-right: 25px;
+        width: 25%;
+        @include bodyStyle;
+        @include boxstyle;
+        div.course{
+            background-color: $primaryColor;
+            width: 100%;
+            height: 110px;
+            margin: 20px 10px;
+            line-height: 110px;
+            align-items: center;
+            @include boxstyle;
+            p{
+                text-align: center;
+                color: $secondaryColor;
+            }
+        }
+
+    }
+    main{
+        flex-direction: column;
+        width: 75%;
+        @include boxstyle;
+        @include bodyStyle;
+
+        img.img-main{
+            @include boxstyle;
+        }
+        h2{
+            margin: 2rem 0 3rem;
+            @include textStyle(4rem , bold , $primaryColor );
+        }
+        p{
+            @include textStyle(2rem , bold , $textColor);
+        }
+    }
+            }
+
+
+
+
+
+            
+
+            @include media(M) {
+ .hamburger-menu{
+   display: flex !important;
+ }
+ .navbar{
+   display: none;
+ }
+
+.main{
+    flex-direction: column-reverse;
+    margin: 1rem;
+
+    main{
+        width: calc(100% - 2rem) !important;
+        margin-bottom: 1.30rem;
+        height: 500px;
+        p{
+            margin-bottom: 1rem;
+            @include textStyle(1.30rem , bold , $textColor);
+        }
+    }
+    aside{
+        width: calc(100% - 2rem) !important;
+        height: 600px;
+    }
+}
+
+
+              }
+  
